@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Nerd Tool</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@4.19.0/css/xterm.css">
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+        <link rel="icon" href="favicon.ee2246ac.ico">
+         <script type="module" src="index.runtime.90cf88fa.js"></script><script src="https://cdn.jsdelivr.net/npm/xterm@4.19.0/lib/xterm.min.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h1 align="center"><p><img src="nn_logo_square.3c9247d9.3c9247d9.svg" width="42" height="42" style="vertical-align: middle" crossorigin=""> nerd.tool1</p></h1>
+
+        <h4 align="center">nerd updater</h4>
+        <div id="safariErr" style="display: inline"><p align="center" style="color: red">This tool is not supported on Safari browser!</p>
+        </div>
+        <div align="center">
+            <a class="btn button-primary" href="https://notebooknerds.de/nerd-tool-1/" target="_blank‚">Learn More About nerd.tool.1</a>
+          </div>
+        <div class="container" id="main">
+            <hr>
+            <div id="program">
+                <h3> Connect Device </h3>
+                <label for="baudrates" id="lblBaudrate" style="display: none">Baudrate:</label>
+                <label style="display: none" id="lblConnTo">Connected to device: </label>
+                <select name="baudrates" id="baudrates" style="display: none">
+                    <option value="921600">921600</option>
+                    <!-- <option value="460800">460800</option>
+                    <option value="230400">230400</option>
+                    <option value="115200">115200</option> -->
+                </select>
+
+                
+
+                <br><br>
+
+                <input class="btn button-primary btn-sm" type="button" id="connectButton" value="Connect">
+               
+                <input class="btn button-secondary btn-sm" type="button" id="disconnectButton" value="Disconnect">
+                <input style="display: none" class="btn btn-danger btn-sm" type="button" id="eraseButton" value="Erase Flash">
+                <input style="display: none" class="btn button-primary btn-sm" type="button" id="copyTraceButton" value="Copy Trace">
+                <br>
+
+                <div class="alert alert-danger alert-dismissible" id="alertDiv" style="margin-top: 10px; display: none">
+                    <a href="#" class="close" aria-label="close" onclick="$('.alert').hide()">&times;</a>
+                    <span id="alertmsg"></span>
+                </div>
+
+                <br><br>
+                
+                <label id="lbl-versions" for="versionSelect">Select Version:</label>
+                <select id="versionSelect">
+                    <option value="v1">Version 1</option>
+                    <option value="v2">Version 2</option>
+                    <option value="v3">Version 3</option>
+                </select>
+
+                <div id="files" style="display: none">
+                    <input class="btn button-primary btn-sm" type="button" id="programButton" value="Program">
+                </div>
+                <br><br>
+                <div id="flash-div" style="display: none">
+                    
+                    <input class="btn button-primary btn-sm" type="button" id="addFile" value="Add File">
+                    <input class="btn button-primary btn-sm" type="button" id="programButton" value="Program">
+                </div>
+                <output id="list"></output>
+
+                <div>
+                    <p>
+                        
+                    </p>
+                </div>
+                <hr>
+            </div>
+            <div id="console">
+                <h3>Console </h3>
+                <label style="display: none" id="lblConsoleFor">Connected to device: </label>
+                <label style="display: none" for="consoleBaudrates" id="lblConsoleBaudrate">Baudrate:</label>
+                <select style="display: none" name="consoleBaudrates" id="consoleBaudrates">
+                    <option value="115200">115200</option>
+                    <option value="74880">74880</option>
+                </select>
+
+                <br><br>
+
+                <input class="btn button-primary" type="button" id="consoleStartButton" value="Start">
+                <input class="btn button-primary" type="button" id="consoleStopButton" value="Stop">
+                <input class="btn button-primary" type="button" id="resetButton" value="Reset">
+                <hr>
+            </div>
+            <div id="terminal"></div>
+        </div>
+        <!-- Popup Modal -->
+        <div id="popupModal" class="modal">
+            <div class="modal-content">
+            <span id="closePopup" class="close">&times;</span>
+            <h2>Flashing in Progress</h2>
+            <p>Please wait while the program is being flashed.</p>
+            <div class="progress">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            </div>
+        </div>
+
+        <script src="index.e4618610.js" type="module"></script>
+        <script>// Safari 3.0+ "[object HTMLElementConstructor]"
+var isSafari = /constructor/i.test(window.HTMLElement) || function(p) {
+    return p.toString() === "[object SafariRemoteNotification]";
+}(!window["safari"] || typeof safari !== "undefined" && window["safari"].pushNotification);
+if (isSafari) {
+    document.getElementById("safariErr").style.display = "inline";
+    document.getElementById("main").style.display = "none";
+}
+
+</script>
+        <style>.button-primary {
+  color: #fff;
+  background-color: #1e354a;
+  border-color: #1e354a;
+}
+
+.button-secondary {
+  color: #fff;
+  background-color: #1e354a;
+  border-color: #042647;
+}
+
+.button-secondary:hover, .button-primary:hover {
+  color: #fff;
+  background-color: #5cf29d;
+  border-color: #5cf29d;
+}
+
+.modal {
+  z-index: 1;
+  background-color: #0006;
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.modal-content {
+  text-align: center;
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 80%;
+  margin: 15% auto;
+  padding: 20px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.progress {
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.progress-bar {
+  background-color: #4caf50;
+  width: 0%;
+  height: 30px;
+}
+
+.btn.focus, .btn:focus, .btn:hover {
+  color: #fff;
+  text-decoration: none;
+}
+</style>
+    </body>
+</html>
