@@ -6,37 +6,36 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@4.19.0/css/xterm.css">
         <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-        <link rel="icon" href="favicon.ee2246ac.ico">
+        <link rel="icon" href="nn_logo.85f77d8f.svg">
          <script type="module" src="index.runtime.90cf88fa.js"></script><script src="https://cdn.jsdelivr.net/npm/xterm@4.19.0/lib/xterm.min.js"></script>
          <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.js"></script>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <h1 align="center"><p><img src="nn_logo_square.3c9247d9.3c9247d9.svg" width="42" height="42" style="vertical-align: middle" crossorigin=""> nerd.tool1</p></h1>
+        <h1 align="center"><p><img src="nn_logo.85f77d8f.svg" width="80" height="60" style="vertical-align: middle" crossorigin=""></p></h1>
+            <h1 align="center">nerd.updater</h1>
 
-        <h4 align="center">nerd updater</h4>
+       
         <div id="safariErr" style="display: inline"><p align="center" style="color: red">This tool is not supported on Safari browser!</p>
+            <p align="center" style="color: red">After programming your device and seeing the message 'Hash Verified' in the terminal, you can safely unplug your device. The process is now complete. </p>
         </div>
         <div align="center">
             <a class="btn button-primary" href="https://notebooknerds.de/nerd-tool-1/" target="_blank‚">Learn More About nerd.tool.1</a>
           </div>
         <div class="container" id="main">
             <hr>
-            <div id="program">
-                <h3> Connect Device </h3>
+            <div align="center" id="program">
+                <h3> 1. Connect Device </h3>
                 <label for="baudrates" id="lblBaudrate" style="display: none">Baudrate:</label>
                 <label style="display: none" id="lblConnTo">Connected to device: </label>
                 <select name="baudrates" id="baudrates" style="display: none">
                     <option value="921600">921600</option>
                     <!-- <option value="460800">460800</option>
                     <option value="230400">230400</option>
+                     <h4 align="center">nerd updater</h4>
                     <option value="115200">115200</option> -->
                 </select>
-
-                
-
-                <br><br>
 
                 <input class="btn button-primary btn-sm" type="button" id="connectButton" value="Connect">
                
@@ -49,8 +48,6 @@
                     <a href="#" class="close" aria-label="close" onclick="$('.alert').hide()">&times;</a>
                     <span id="alertmsg"></span>
                 </div>
-
-                <br><br>
                 
                 <label id="lbl-versions" for="versionSelect">Select Version:</label>
                 <select id="versionSelect">
@@ -62,7 +59,6 @@
                 <div id="files" style="display: none">
                     <input class="btn button-primary btn-sm" type="button" id="programButton" value="Program">
                 </div>
-                <br><br>
                 <div id="flash-div" style="display: none">
                     
                     <input class="btn button-primary btn-sm" type="button" id="addFile" value="Add File">
@@ -77,7 +73,7 @@
                 </div>
                 <hr>
             </div>
-            <div id="console">
+            <div style="display: none" id="console">
                 <h3>Console </h3>
                 <label style="display: none" id="lblConsoleFor">Connected to device: </label>
                 <label style="display: none" for="consoleBaudrates" id="lblConsoleBaudrate">Baudrate:</label>
